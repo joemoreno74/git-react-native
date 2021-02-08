@@ -107,6 +107,7 @@ class Reservation extends Component {
                         onRequestClose={() => this.toggleModal()}
                     >
                         <View style={styles.modal}>
+                            <View>
                             <Text style={styles.modalTitle}>Search Campsite Reservations</Text>
                             <Text style={styles.modalText}>
                                 Number of Campers: {this.state.campers}
@@ -125,6 +126,7 @@ class Reservation extends Component {
                                 color='#5637DD'
                                 title='Close'
                             />
+                           </View> 
                         </View>
                     </Modal>
                 </ScrollView>
