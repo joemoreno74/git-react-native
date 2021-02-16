@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, FlatList,
     Modal, Button, StyleSheet,
-    Alert, PanResponder } from 'react-native';
+    Alert, PanResponder, Pressable } from 'react-native';
 import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
@@ -89,6 +89,9 @@ function RenderCampsite(props) {
                     ],
                     { cancelable: false }
                 );
+            } else if (recognizeComment(gestureState)) {
+                props.onShowModal()
+
             }
             return true;
         }
@@ -132,6 +135,11 @@ function RenderCampsite(props) {
         );
     }
     return <View />;
+}
+
+function recognizeComment() {
+    return(
+        ({dx}) => (dx > -200) ? true : false);
 }
 
 class CampsiteInfo extends Component {  
